@@ -1,15 +1,66 @@
+---
+title: "Remotion Stargazer Template"
+tags: ["remotion", "template", "github", "stars", "stargazer"]
+category: "Template"
+created: "2026-10-20"
+updated: "2026-10-20"
+source: "external"
+type: "index"
+status: "stable"
+lifecycle: "active"
+---
+
 Your repo reached a stars milestone? Celebrate with a video of your stargazers!
+
+---
+
+## 💡 概述
+
+A Remotion template for generating celebratory stargazer videos when a GitHub repository reaches a stars milestone. Renders animated videos showcasing contributor avatars and star history, runnable locally or via GitHub Actions.
+
+---
+
+## ⚡ 功能
+
+- Animated stargazer celebration videos
+- Two rendering methods: local and GitHub Actions
+- GitHub API integration for fetching stargazers
+- Configurable repository targeting via Remotion input props
+
+---
+
+## 📊 指标
 
 ## Example
 
 https://user-images.githubusercontent.com/1911623/121809549-93342a80-cc33-11eb-88ff-e45f8b6dace4.mp4?width=200
 
-## There are 2 ways to make your Stargazer video.
+---
+
+## 🏛️ 设计
+
+### There are 2 ways to make your Stargazer video.
 
 1. Make your Video locally
 2. Make your Video using Github Actions (Easy)
 
-## Make your own video (local)
+---
+
+## 📁 目录
+
+「待补充」
+
+---
+
+## 🔗 资源
+
+「待补充」
+
+---
+
+## 🚀 快速开始
+
+### Make your own video (local)
 
 1. [Use this repo as a template](https://github.com/pomber/stargazer/generate)
 
@@ -38,7 +89,7 @@ npm run dev
 npx remotion render
 ```
 
-## Make your own video (GitHub Actions)
+### Make your own video (GitHub Actions)
 
 1. Fork this repo
    <img src="https://user-images.githubusercontent.com/1911623/121809008-75fe5c80-cc31-11eb-8f44-5df6183deca5.png" width="720"/>
@@ -61,11 +112,19 @@ npx remotion render
 7. By clicking on this you can get your Stargazer video.
    <img src="https://user-images.githubusercontent.com/1911623/121809394-fb364100-cc32-11eb-8a82-e9a6d25f37cf.png" width="720"/>
 
-## Upgrade Remotion
+### Upgrade Remotion
 
 ```
 npx remotion upgrade
 ```
+
+---
+
+## ⚙️ 技术栈
+
+「待补充」
+
+---
 
 ## Credits
 

@@ -1,3 +1,15 @@
+---
+title: "Remotion TikTok Template"
+tags: ["remotion", "template", "tiktok", "captioning", "whisper"]
+category: "Template"
+created: "2026-10-20"
+updated: "2026-10-20"
+source: "external"
+type: "index"
+status: "stable"
+lifecycle: "active"
+---
+
 # Remotion video
 
 <p align="center">
@@ -11,7 +23,55 @@
 
 Welcome to your Remotion project!
 
-## Commands
+---
+
+## 💡 概述
+
+A Remotion starter template tailored for TikTok-style video creation with built-in captioning support using Whisper.cpp for automatic speech-to-text subtitle generation.
+
+---
+
+## ⚡ 功能
+
+- TikTok-optimized video template
+- Automatic caption generation via Whisper.cpp
+- Batch captioning of all videos in the `public` directory
+- Configurable Whisper model selection
+- Non-English language support via model configuration
+
+---
+
+## 📊 指标
+
+「待补充」
+
+---
+
+## 🏛️ 设计
+
+### Configure Whisper.cpp
+
+Captioning will download Whisper.cpp and the 1.5GB big `medium.en` model. To configure which model is being used, you can configure the variables in `whisper-config.mjs`.
+
+### Non-English languages
+
+To support non-English languages, you need to change the `WHISPER_MODEL` variable in `whisper-config.mjs` to a model that does not have a `.en` suffix.
+
+---
+
+## 📁 目录
+
+「待补充」
+
+---
+
+## 🔗 资源
+
+「待补充」
+
+---
+
+## 🚀 快速开始
 
 **Install Dependencies**
 
@@ -37,10 +97,10 @@ npx remotion render
 npx remotion upgrade
 ```
 
-## Captioning
+### Captioning
 
 Replace the `sample-video.mp4` with your video file.
-Caption all the videos in you `public` by running the following command:
+Caption all the videos in your `public` by running the following command:
 
 ```console
 node sub.mjs
@@ -58,13 +118,13 @@ Only caption a specific folder:
 node sub.mjs <path-to-folder>
 ```
 
-## Configure Whisper.cpp
+---
 
-Captioning will download Whisper.cpp and the 1.5GB big `medium.en` model. To configure which model is being used, you can configure the variables in `whisper-config.mjs`.
+## ⚙️ 技术栈
 
-### Non-English languages
+「待补充」
 
-To support non-English languages, you need to change the `WHISPER_MODEL` variable in `whisper-config.mjs` to a model that does not have a `.en` sufix.
+---
 
 ## Docs
 

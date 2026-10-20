@@ -1,3 +1,15 @@
+---
+title: "Remotion Vercel Template"
+tags: ["remotion", "template", "vercel", "nextjs", "sandbox"]
+category: "Template"
+created: "2026-10-20"
+updated: "2026-10-20"
+source: "external"
+type: "index"
+status: "stable"
+lifecycle: "active"
+---
+
 <img src="https://github.com/remotion-dev/template-next/assets/1629785/9092db5f-7c0c-4d38-97c4-5f5a61f5cc098" />
 <br/>
 <br/>
@@ -8,7 +20,85 @@ This is a Next.js template for building programmatic video apps with [`@remotion
 
 Tailwind CSS is included. Videos are rendered in a Vercel Sandbox environment and stored in [Vercel Blob](https://vercel.com/docs/storage/vercel-blob) storage.
 
-## Getting Started
+---
+
+## 💡 概述
+
+A Next.js template for building programmatic video applications with Remotion. Renders videos on-demand via Vercel Sandbox and stores results in Vercel Blob, enabling a fully serverless video generation pipeline on the Vercel platform.
+
+---
+
+## ⚡ 功能
+
+- Next.js app with @remotion/player integration
+- Serverless video rendering via Vercel Sandbox
+- Vercel Blob storage for rendered video output
+- Tailwind CSS pre-configured
+- One-click deploy to Vercel
+
+---
+
+## 📊 指标
+
+### Important considerations
+
+This template does not include rate limiting or caching. Implement these before making your app publicly available, and set up [Vercel Spend Management](https://vercel.com/docs/accounts/spend-management) to control costs. Sandbox snapshots, rendered videos, and other Vercel Blob data persist indefinitely -- delete them when no longer needed.
+
+---
+
+## 🏛️ 设计
+
+### Deploy to Vercel
+
+The only requirement is to set up a Vercel Blob store and attach it to your project.  
+It is advisable to first deploy the template to Vercel so you have a project to attach the Blob store to.
+
+1. Go to your Vercel dashboard
+2. Navigate to Storage > Create > Blob
+3. Create a new Blob store and attach it to your project
+
+If you deploy your app to the same Vercel project where your Blob store is attached, the `BLOB_READ_WRITE_TOKEN` environment variable is automatically available.
+
+### Local Development
+
+To get access to sandboxes, just make sure you are logged in with the [Vercel CLI](https://vercel.com/docs/cli):
+
+```bash
+vercel login
+```
+
+To run renders locally, pull the `BLOB_READ_WRITE_TOKEN` environment variable from your attached Blob store:
+
+```bash
+vercel link  # Link to your Vercel project (if not already linked)
+vercel env pull .env.local
+```
+
+This pulls `BLOB_READ_WRITE_TOKEN` from your attached Blob store.
+
+Then start the dev server:
+
+```bash
+npm run dev
+```
+
+---
+
+## 📁 目录
+
+「待补充」
+
+---
+
+## 🔗 资源
+
+「待补充」
+
+---
+
+## 🚀 快速开始
+
+### Getting Started
 
 [Use this template](https://github.com/new?template_name=template-vercel&template_owner=remotion-dev) to clone it into your GitHub account. Run
 
@@ -22,7 +112,7 @@ afterwards. Alternatively, use this command to scaffold a project:
 npx create-video@latest --vercel
 ```
 
-## Commands
+### Commands
 
 Start the Next.js dev server:
 
@@ -48,43 +138,13 @@ Upgrade Remotion:
 npx remotion upgrade
 ```
 
-## Important considerations
+---
 
-This template does not include rate limiting or caching. Implement these before making your app publicly available, and set up [Vercel Spend Management](https://vercel.com/docs/accounts/spend-management) to control costs. Sandbox snapshots, rendered videos, and other Vercel Blob data persist indefinitely – delete them when no longer needed.
+## ⚙️ 技术栈
 
-## Deploy to Vercel
+「待补充」
 
-The only requirement is to set up a Vercel Blob store and attach it to your project.  
-It is advisable to first deploy the template to Vercel so you have a project to attach the Blob store to.
-
-1. Go to your Vercel dashboard
-2. Navigate to Storage > Create > Blob
-3. Create a new Blob store and attach it to your project
-
-If you deploy your app to the same Vercel project where your Blob store is attached, the `BLOB_READ_WRITE_TOKEN` environment variable is automatically available.
-
-## Local Development
-
-To get access to sandboxes, just make sure you are logged in with the [Vercel CLI](https://vercel.com/docs/cli):
-
-```bash
-vercel login
-```
-
-To run renders locally, pull the `BLOB_READ_WRITE_TOKEN` environment variable from your attached Blob store:
-
-```bash
-vercel link  # Link to your Vercel project (if not already linked)
-vercel env pull .env.local
-```
-
-This pulls `BLOB_READ_WRITE_TOKEN` from your attached Blob store.
-
-Then start the dev server:
-
-```bash
-npm run dev
-```
+---
 
 ## Docs
 

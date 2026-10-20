@@ -1,3 +1,15 @@
+---
+title: "Remotion + React Router Starter Kit"
+tags: ["remotion", "template", "react-router", "lambda"]
+category: "Template"
+created: "2026-10-20"
+updated: "2026-10-20"
+source: "external"
+type: "index"
+status: "stable"
+lifecycle: "active"
+---
+
 # Remotion + React Router 8 Starter Kit
 
 <p align="center">
@@ -12,7 +24,51 @@
 This is a [React Router 8 starter kit](https://reactrouter.com/home) with [Remotion](https://remotion.dev), [`@remotion/player`](https://remotion.dev/player) and [`@remotion/lambda`](https://remotion.dev/lambda) built in.
 It lets you render a video from a React Router app with AWS Lambda.
 
-## Getting started
+---
+
+## 💡 概述
+
+A starter template combining React Router 8 with Remotion for video rendering via AWS Lambda. Provides a full-stack setup where a React Router application can trigger and manage video renders through Remotion Lambda.
+
+---
+
+## ⚡ 功能
+
+- React Router 8 app integration
+- Remotion Studio for video editing and preview
+- AWS Lambda-based video rendering
+- Remotion Player for in-app video preview
+- Deployable Lambda functions and S3 site hosting
+
+---
+
+## 📊 指标
+
+「待补充」
+
+---
+
+## 🏛️ 设计
+
+「待补充」
+
+---
+
+## 📁 目录
+
+「待补充」
+
+---
+
+## 🔗 资源
+
+「待补充」
+
+---
+
+## 🚀 快速开始
+
+### Getting started
 
 Use Node.js 22.22.0 or newer.
 
@@ -24,7 +80,7 @@ Install dependencies using
 npm install
 ```
 
-## Run the React Router app
+### Run the React Router app
 
 Run the example app using:
 
@@ -32,7 +88,7 @@ Run the example app using:
 npm run dev
 ```
 
-## Edit the video
+### Edit the video
 
 Start the Remotion Preview (the editor interface) using:
 
@@ -40,7 +96,7 @@ Start the Remotion Preview (the editor interface) using:
 npm run remotion:studio
 ```
 
-## Render videos with AWS Lambda
+### Render videos with AWS Lambda
 
 Follow these steps to set up video rendering:
 
@@ -58,7 +114,7 @@ node deploy.mjs
 
 5. Restart the server.
 
-## Commands
+### Commands
 
 Start the app in development mode:
 
@@ -108,10 +164,18 @@ Deploy/Update the Remotion video on S3 and the Lambda function:
 node deploy.mjs
 ```
 
-## Upgrading Remotion
+### Upgrading Remotion
 
 When upgrading Remotion to a newer version, you will need to redeploy your function and update your site using the commands above.  
 If your functions or sites are already used in production, make sure to not overwrite them - [read here](https://www.remotion.dev/docs/lambda/upgrading) for more details about upgrading.
+
+---
+
+## ⚙️ 技术栈
+
+「待补充」
+
+---
 
 ## Docs
 

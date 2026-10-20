@@ -1,8 +1,30 @@
+---
+title: 'Dockerfiles'
+tags: ['docker', 'testing', 'browser']
+category: 'infrastructure'
+created: '2026-10-20'
+updated: '2026-10-20'
+source: 'external'
+type: 'index'
+status: 'stable'
+lifecycle: 'active'
+---
+
+# Dockerfiles
+
+---
+
+## 💡 概述
+
 Sample Dockerfiles for different operating systems that show how to install Remotion including the browser.
 
 Uses `npx remotion browser ensure` to install the browser, which requires some shared libraries.
 
-## Running the tests
+---
+
+## ⚡ 功能
+
+### Running the tests
 
 ```bash
 ./run.sh
@@ -22,7 +44,7 @@ Output videos (per platform — `<platform>.mp4` and `<platform>-html-in-canvas.
 - `out/debian.mp4`, `out/debian-html-in-canvas.mp4`
 - `out/nix.mp4`, `out/nix-html-in-canvas.mp4`
 
-## browser-test composition
+### browser-test composition
 
 Located in `packages/example/src/BrowserTest/index.tsx`, it tests:
 
@@ -30,8 +52,48 @@ Located in `packages/example/src/BrowserTest/index.tsx`, it tests:
 - Video playback with different codecs (H.264, H.265)
 - WebGL availability
 
-## html-in-canvas composition
+### html-in-canvas composition
 
 Located in `packages/example/src/HtmlInCanvas/index.tsx`, it tests the experimental [WICG html-in-canvas](https://github.com/WICG/html-in-canvas) `CanvasRenderingContext2D.drawElementImage()` API. If the API is unavailable in the bundled Chrome (for example without `chrome://flags/#canvas-draw-element` enabled), the composition fails the render with an error.
 
 The bundle is built from `packages/example` and copied into each Docker container during build.
+
+---
+
+## 📊 指标
+
+「待补充」
+
+---
+
+## 🏛️ 设计
+
+「待补充」
+
+---
+
+## 📁 目录
+
+「待补充」
+
+---
+
+## 🔗 资源
+
+- [WICG html-in-canvas](https://github.com/WICG/html-in-canvas)
+
+---
+
+## 🚀 快速开始
+
+```bash
+./run.sh
+```
+
+---
+
+## ⚙️ 技术栈
+
+- Docker
+- Remotion
+- Chrome (headless)

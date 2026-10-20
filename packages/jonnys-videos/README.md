@@ -1,3 +1,15 @@
+---
+title: "Remotion Video (jonnys-videos)"
+tags: ["remotion", "video", "hackathon", "roller-skis"]
+category: "packages"
+created: "2026-10-20"
+updated: "2026-10-20"
+source: "external"
+type: "index"
+status: "stable"
+lifecycle: "active"
+---
+
 # Remotion video
 
 <p align="center">
@@ -9,7 +21,49 @@
   </a>
 </p>
 
+💡 概述
+
 Welcome to your Remotion project!
+
+---
+
+⚡ 功能
+
+- Roller ski video compositions in the `RollerSkis` folder
+- Plane Sight hackathon video compositions in the `PlaneSight` folder
+- Caption data and normalized audio management
+- External media hosting via `remotion.media`
+
+---
+
+📊 指标
+
+「待补充」
+
+---
+
+🏛️ 设计
+
+「待补充」
+
+---
+
+📁 目录
+
+「待补充」
+
+---
+
+🔗 资源
+
+- Remotion fundamentals: [https://www.remotion.dev/docs/the-fundamentals](https://www.remotion.dev/docs/the-fundamentals)
+- Discord server: [https://discord.gg/6VzzNDwUwV](https://discord.gg/6VzzNDwUwV)
+- Issues: [https://github.com/remotion-dev/remotion/issues/new](https://github.com/remotion-dev/remotion/issues/new)
+- License: [https://github.com/remotion-dev/remotion/blob/main/LICENSE.md](https://github.com/remotion-dev/remotion/blob/main/LICENSE.md)
+
+---
+
+🚀 快速开始
 
 ## Commands
 
@@ -54,18 +108,9 @@ bun run dev
 bunx remotion render PlaneSightPromo out/plane-sight-promo.mp4
 ```
 
-## Docs
+---
 
-Get started with Remotion by reading the [fundamentals page](https://www.remotion.dev/docs/the-fundamentals).
+⚙️ 技术栈
 
-## Help
-
-We provide help on our [Discord server](https://discord.gg/6VzzNDwUwV).
-
-## Issues
-
-Found an issue with Remotion? [File an issue here](https://github.com/remotion-dev/remotion/issues/new).
-
-## License
-
-Note that for some entities a company license is needed. [Read the terms here](https://github.com/remotion-dev/remotion/blob/main/LICENSE.md).
+- Remotion
+- Bun

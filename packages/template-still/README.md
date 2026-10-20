@@ -1,3 +1,15 @@
+---
+title: "Remotion Still Image Template"
+tags: ["remotion", "template", "still", "image", "server"]
+category: "Template"
+created: "2026-10-20"
+updated: "2026-10-20"
+source: "external"
+type: "index"
+status: "stable"
+lifecycle: "active"
+---
+
 # Remotion Still Image template
 
 A template for designing still images with dynamic data with built-in server for deploying to the cloud.
@@ -6,29 +18,35 @@ A template for designing still images with dynamic data with built-in server for
     <img src="cover.png">
 </p>
 
-## Commands
+---
 
-**Design mode: Create an image in React**
+## 💡 概述
 
-```console
-npm run dev
-```
+A Remotion template for designing and serving dynamic still images. Includes a built-in Express server that renders images on-the-fly based on URL parameters, with configurable caching strategies for production deployment.
 
-**Render it**
+---
 
-```console
-npx remotion render
-```
+## ⚡ 功能
 
-**Keep Remotion up to date**
+- Dynamic still image generation from React compositions
+- Built-in HTTP server with query-string-based input props
+- PNG and JPEG output format support
+- Three caching modes: filesystem, none, and S3 bucket
+- Deployable to Heroku and DigitalOcean App Platform
 
-```console
-npx remotion upgrade
-```
+---
 
-## Server
+## 📊 指标
 
-You can run a server that serves dynamic images based on it's URL. Run
+「待补充」
+
+---
+
+## 🏛️ 设计
+
+### Server
+
+You can run a server that serves dynamic images based on its URL. Run
 
 ```console
 npm run server
@@ -77,6 +95,48 @@ The easiest way to deploy to DigitalOcean is to use the dockerized image and run
 ### Serverless
 
 Use [Remotion Lambda](https://remotion.dev/lambda) if you want to render stills inside a Lambda function.
+
+---
+
+## 📁 目录
+
+「待补充」
+
+---
+
+## 🔗 资源
+
+「待补充」
+
+---
+
+## 🚀 快速开始
+
+**Design mode: Create an image in React**
+
+```console
+npm run dev
+```
+
+**Render it**
+
+```console
+npx remotion render
+```
+
+**Keep Remotion up to date**
+
+```console
+npx remotion upgrade
+```
+
+---
+
+## ⚙️ 技术栈
+
+「待补充」
+
+---
 
 ## Docs
 

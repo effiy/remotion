@@ -1,3 +1,15 @@
+---
+title: "Remotion Render Server Template"
+tags: ["remotion", "template", "server", "render", "express"]
+category: "Template"
+created: "2026-10-20"
+updated: "2026-10-20"
+source: "external"
+type: "index"
+status: "stable"
+lifecycle: "active"
+---
+
 # Remotion Render Server Template
 
 <p align="center">
@@ -17,7 +29,50 @@ The server exposes the following main endpoints:
 - `GET /renders/:id` - Get the status of a render
 - `DELETE /renders/:id` - Cancel a running render
 
-## Getting Started
+---
+
+## 💡 概述
+
+A Remotion template that wraps video rendering in an Express.js HTTP server. Enables render job management through a REST API, suitable for integrating Remotion rendering into web services and backend workflows.
+
+---
+
+## ⚡ 功能
+
+- REST API for render job lifecycle management
+- Start, track, and cancel render jobs
+- Docker support for containerized deployment
+- Express.js server with watch mode for development
+
+---
+
+## 📊 指标
+
+「待补充」
+
+---
+
+## 🏛️ 设计
+
+「待补充」
+
+---
+
+## 📁 目录
+
+「待补充」
+
+---
+
+## 🔗 资源
+
+「待补充」
+
+---
+
+## 🚀 快速开始
+
+### Getting Started
 
 **Install Dependencies**
 
@@ -57,7 +112,7 @@ npx remotion render
 npx remotion upgrade
 ```
 
-## Docker Support
+### Docker Support
 
 The template includes Docker support out of the box. Build and run the container using:
 
@@ -65,6 +120,14 @@ The template includes Docker support out of the box. Build and run the container
 docker build -t remotion-render-server .
 docker run -d -p 3000:3000 remotion-render-server
 ```
+
+---
+
+## ⚙️ 技术栈
+
+「待补充」
+
+---
 
 ## Docs
 

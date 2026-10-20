@@ -1,32 +1,101 @@
-# Remotion Canvas Capture Chrome extension
+---
+title: 'Remotion Canvas Capture Chrome Extension'
+tags: ['chrome-extension', 'canvas', 'screen-recording', 'h264', 'vp9', 'mediabunny']
+category: 'tooling'
+created: '2026-10-20'
+updated: '2026-10-20'
+source: 'external'
+type: 'index'
+status: 'stable'
+lifecycle: 'active'
+---
 
-Record an area—or a whole webpage—as a high-resolution H.264 MP4 or VP9 WebM using Chromium's experimental HTML-in-canvas implementation.
+# Remotion Canvas Capture Chrome Extension
 
-## Browser setup on macOS
+> Record an area—or a whole webpage—as a high-resolution H.264 MP4 or VP9 WebM using Chromium's experimental HTML-in-canvas implementation.
 
-Canvas Capture requires Chrome 157.0.8080.0 or newer with Canvas Draw Element enabled. You can use Chrome, Chrome Canary, or Chrome for Testing as long as the browser meets this minimum. The extension also checks whether the HTML-in-canvas API and video encoding configuration are available before recording.
+---
 
-When the controls open, a red callout above the toolbar explains any unmet browser
-requirements before an area is selected. An outdated browser shows the minimum
-Chrome version. If the required APIs are unavailable, the callout offers a
-**Open Chrome flags** button that opens `chrome://flags/#canvas-draw-element` in a
-new tab; enable Canvas Draw Element there and restart Chrome. The warning describes missing APIs without
-assuming the flag's state. Requirements are checked again when the controls reopen.
-Chrome versions below the manifest minimum cannot load the extension at all.
+💡 概述
 
-To install a compatible Chrome for Testing build, run:
+Canvas Capture 是一个 Chrome 浏览器扩展，利用 Chromium 的实验性 HTML-in-canvas 实现，将网页区域或整个页面录制为高分辨率 H.264 MP4 或 VP9 WebM 视频。录制内容可直接导入 Remotion 进行进一步编辑。
+
+---
+
+⚡ 功能
+
+- **区域/整页录制**：选择页面任意区域或整个视口进行录制
+- **高分辨率输出**：默认 2K (2560x1440) 分辨率，支持通过缩放滑块调整
+- **多格式支持**：H.264 MP4 和 VP9 WebM 编码
+- **Agentic shot 设置**：向 WebMCP 代理暴露 `setup_shot`、`get_shot`、`save_recording` 接口
+- **拖拽预览捕获**：在录制中保留拖拽操作的预览图像
+- **一键导入 Remotion**：录制完成后直接发送至 remotion.dev 进行编辑
+
+---
+
+📊 指标
+
+「待补充」
+
+---
+
+🏛️ 设计
+
+### 录制原理
+
+整页 DOM 子树以显示器原生像素密度绘制到 `content="drawable"` 的 canvas 中，选中区域裁剪后复制到可复用的 `OffscreenCanvas`。控件挂载在录制区域之外，不会出现在画面中。录制结束后页面内容恢复原状。
+
+### 传输协议
+
+录制文件通过 Chrome 扩展的 `externally_connectable` 消息通道传输至 remotion.dev。扩展生成一次性传输令牌（10 分钟有效），通过 URL fragment 传递。目标页面验证来源、目标路径、标签页 ID 和令牌后接收分块数据，确认后扩展删除本地录制文件。中断传输可在令牌过期前从同一标签页重试。
+
+### Canvas 兼容性
+
+录制期间，现有 canvas 元素和录制区域内新建的 canvas 会临时设置 `content="drawable"` 以避免 Chromium 在原点处裁剪位图，录制完成后恢复原始属性。
+
+### 拖拽预览
+
+- 默认预览：在页面绘制拖拽起始变化后快照可拖拽源元素，保留抓取点
+- 自定义预览：通过 `DataTransfer.setDragImage()` 提供的预览替换默认快照，使用指定的热点偏移
+- 普通元素保留合成背景；自身建立层叠上下文的图像和元素保留透明度
+- 预览仅添加到录制帧中，拖拽结束或放置后消失
+- 不支持：文本选择拖拽、跨标签页/应用拖拽、Shadow DOM 和跨域内容
+
+---
+
+📁 目录
+
+「待补充」
+
+---
+
+🔗 资源
+
+- [Agentic shot setup 文档](https://www.remotion.dev/docs/canvas-capture/agentic-shot-setup)
+
+---
+
+🚀 快速开始
+
+### 浏览器要求
+
+需要 Chrome 157.0.8080.0 或更新版本，并启用 Canvas Draw Element。可使用 Chrome、Chrome Canary 或 Chrome for Testing。
+
+控件打开时，工具栏上方的红色提示会说明未满足的浏览器要求。过旧的浏览器会显示最低 Chrome 版本。如果所需 API 不可用，提示中提供 **Open Chrome flags** 按钮，打开 `chrome://flags/#canvas-draw-element` 并启用后重启 Chrome。
+
+### 安装兼容浏览器
 
 ```bash
 packages/canvas-capture-extension/scripts/install-browser.sh
 ```
 
-The installer uses a compatible release from Google's Chrome for Testing channels and installs it at:
+安装位置：
 
 ```text
 /Users/jonathanburger/Applications/Recorder Chrome.app
 ```
 
-Launch it with a dedicated profile and the HTML-in-canvas feature enabled:
+启动命令：
 
 ```bash
 '/Users/jonathanburger/Applications/Recorder Chrome.app/Contents/MacOS/Google Chrome for Testing' \
@@ -36,103 +105,31 @@ Launch it with a dedicated profile and the HTML-in-canvas feature enabled:
   --no-default-browser-check
 ```
 
-Load the unpacked extension from the durable installation directory:
+加载扩展目录：
 
 ```text
 /Users/jonathanburger/Applications/Remotion Canvas Capture Extension
 ```
 
-## Development
+### 构建与安装（生产）
 
-Close Recorder Chrome if it is already using the dedicated Canvas Capture
-profile, then run:
+1. 从仓库根目录运行 `.agents/skills/canvas-capture-extension/scripts/rebuild-extension.sh --repo "$PWD"`，此脚本创建生产 WXT 构建并将完整扩展安装到工作树之外
+2. 在 Chrome 中打开 `chrome://extensions`，启用 **开发者模式**，选择 **加载已解压的扩展程序**
+3. 选择 `/Users/jonathanburger/Applications/Remotion Canvas Capture Extension`
+4. 如尚未启用，在 `chrome://flags/#canvas-draw-element` 中启用 Canvas Draw Element 并重启 Chrome
 
-```bash
-cd packages/canvas-capture-extension
-bun run dev
-```
+### 使用
 
-WXT starts Vite, writes the development extension to the durable
-`/Users/jonathanburger/Applications/Remotion Canvas Capture Extension Dev`
-directory, launches Chrome for Testing with the required feature
-flags and persistent profile, and loads the extension automatically.
+点击扩展图标切换页面内控件。选择区域或选择 **Entire page** 以录制完整视口，然后开始录制。点击选中区域旁的缩放值可显示滑块并调整录制缩放比例。缩放滑块的最大值根据选中区域自适应，输出上限约为 4K。控件显示选定格式和取整后的输出尺寸，仅在浏览器确认支持 Mediabunny 的高质量实时配置后才启用录制。
 
-To use another Chrome 157.0.8080.0 or newer executable, set
-`CANVAS_CAPTURE_BROWSER_EXECUTABLE` when starting development:
+停止录制后，可直接在 [remotion.dev/new](https://remotion.dev/new) 中打开、在 [remotion.dev/convert](https://remotion.dev/convert) 中检查，或保存到磁盘。
 
-```bash
-CANVAS_CAPTURE_BROWSER_EXECUTABLE='/Applications/Google Chrome Canary.app/Contents/MacOS/Google Chrome Canary' bun run dev
-```
+---
 
-Open a regular webpage and click the extension icon to show the in-page capture
-controls. WXT rebuilds and reloads the relevant extension contexts when source
-files change.
+⚙️ 技术栈
 
-The development extension is separate from the manually loaded production
-extension, so its path and extension ID remain stable across worktrees.
-
-To test a local handoff destination, set `CANVAS_CAPTURE_HANDOFF_ORIGIN` when
-running `bun run dev`, for example `http://localhost:3000`. Production builds
-always open `https://www.remotion.dev`.
-
-## Opening a recording in Remotion
-
-The extension stores the recording locally and opens `/new` or `/convert`
-with a single-use transfer token and the extension ID in the URL fragment.
-The destination page connects directly to the extension through
-`externally_connectable` messaging. The extension checks the page origin,
-destination path, tab ID, and token before sending the recording in chunks.
-The page acknowledges receipt before the stored recording is deleted.
-
-Transfer tokens expire after 10 minutes. Interrupted transfers can be retried
-from the same destination tab until the token expires; expired recordings are
-removed when the extension next starts or opens another recording. No receiver
-content script or persistent host access is required.
-
-## Build and install
-
-The extension exposes `setup_shot`, `get_shot`, and `save_recording` to WebMCP-aware
-agents after its icon is clicked. Agents can frame the viewport, an element, or an
-exact rectangle, inspect a PNG still preview, and save a completed recording.
-Recording starts and stops through the manual controls. See
-[Agentic shot setup](https://www.remotion.dev/docs/canvas-capture/agentic-shot-setup).
-
-1. From the repository root, run `.agents/skills/canvas-capture-extension/scripts/rebuild-extension.sh --repo "$PWD"`. This creates the production WXT bundle and installs the complete unpacked extension outside the worktree. Building does not require an installed browser.
-2. In Chrome 157.0.8080.0 or newer, open `chrome://extensions`, enable **Developer mode**, and choose **Load unpacked**.
-3. Select `/Users/jonathanburger/Applications/Remotion Canvas Capture Extension`.
-4. Enable `chrome://flags/#canvas-draw-element` and restart Chrome if HTML-in-canvas is not already enabled.
-
-Click the extension icon on a webpage to toggle the in-page controls. Select an
-area or choose **Entire page** to target the full browser viewport, then start
-recording. Captures default to a 2K (2560×1440) bounding resolution. Click the
-zoom value next to the selected area to expose a slider and adjust the capture
-scale directly. The default capture scale adapts to the selected area, so
-smaller areas are enlarged more while preserving their aspect ratio. The
-zoom slider's maximum adapts to the selected area, caps output at roughly 4K,
-and is reduced further when the browser cannot encode that resolution. Resizing
-the area recalculates the range and reduces the current zoom when needed. The
-controls display the selected format and rounded output dimensions and only
-enable recording after the browser confirms that Mediabunny's exact
-high-quality, realtime configuration is supported. The whole page subtree is
-drawn at the display's native pixel density, then the selected crop is copied
-into a reusable, correctly sized `OffscreenCanvas`. The controls are mounted
-outside the captured body subtree, so they do not appear in area or whole-page
-recordings. Stop the recording, then open it directly in
-[remotion.dev/new](https://remotion.dev/new), inspect it in
-[remotion.dev/convert](https://remotion.dev/convert), or save it to disk.
-
-The page contents are temporarily placed inside a `content="drawable"` canvas while recording and restored afterward. The extension also sets `layoutSubtree` for older Chromium versions. Existing canvases and canvases added inside the captured subtree during recording temporarily receive `content="drawable"` to avoid Chromium clipping their bitmaps at the origin; their original attributes are restored afterward. Websites that rely on direct-child CSS selectors may look different during capture. Chrome's own pages and the Chrome Web Store do not allow extension script injection.
-
-Drag previews are copied into recordings at the cursor position. For default
-previews, the extension snapshots the draggable source after the page paints
-its drag-start changes and preserves the point where it was grabbed. Ordinary
-page elements retain their composed background, including backgrounds behind
-translucent fills. Images and elements that establish their own stacking context
-retain their transparency. Custom previews created with `DataTransfer.setDragImage()`
-replace that snapshot and use the supplied hotspot offset. The extension
-preserves temporary HTML previews before the page removes them and supports
-image and canvas sources. Previews are added only to recorded frames and
-disappear on drop or drag end. This recreates the content without Chrome's
-native translucency, cursor badges, or drop animation. Text-selection drags and
-drags originating in other tabs or applications are not captured. Shadow DOM
-and cross-origin content may not appear in copied previews.
+- **Chrome Extension (Manifest V3)**：扩展框架
+- **WXT**：扩展开发工具，Vite 驱动的 HMR
+- **Canvas Draw Element API**：Chromium 实验性 HTML-in-canvas 渲染
+- **Mediabunny**：高质量实时编码配置
+- **OffscreenCanvas**：录制帧的离屏渲染

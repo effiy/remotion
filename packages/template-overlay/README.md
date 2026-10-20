@@ -1,3 +1,15 @@
+---
+title: "Remotion Overlay Template"
+tags: ["remotion", "template", "overlay", "video"]
+category: "Template"
+created: "2026-10-20"
+updated: "2026-10-20"
+source: "external"
+type: "index"
+status: "stable"
+lifecycle: "active"
+---
+
 # Remotion video
 
 <p align="center">
@@ -11,7 +23,43 @@
 
 Welcome to your Remotion project!
 
-## Commands
+## 💡 概述
+
+「待补充」
+
+---
+
+## ⚡ 功能
+
+「待补充」
+
+---
+
+## 📊 指标
+
+「待补充」
+
+---
+
+## 🏛️ 设计
+
+「待补充」
+
+---
+
+## 📁 目录
+
+「待补充」
+
+---
+
+## 🔗 资源
+
+「待补充」
+
+---
+
+## 🚀 快速开始
 
 **Install Dependencies**
 
@@ -36,6 +84,14 @@ npx remotion render
 ```console
 npx remotion upgrade
 ```
+
+---
+
+## ⚙️ 技术栈
+
+「待补充」
+
+---
 
 ## Docs
 

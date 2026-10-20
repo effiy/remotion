@@ -1,3 +1,15 @@
+---
+title: "Remotion Prompt to Motion Graphics"
+tags: ["remotion", "template", "ai", "motion-graphics", "code-generation"]
+category: "Template"
+created: "2026-10-20"
+updated: "2026-10-20"
+source: "external"
+type: "index"
+status: "stable"
+lifecycle: "active"
+---
+
 # Remotion Prompt to Motion Graphics
 
 <p align="center">
@@ -11,15 +23,25 @@
 
 AI-powered motion graphics generator that transforms natural language prompts into Remotion code.
 
-## Architecture
+---
+
+## 💡 概述
+
+This template provides an AI-powered pipeline that converts natural language descriptions into executable Remotion motion graphics code. It uses a multi-stage pipeline: prompt validation, skill detection, code generation, and in-browser compilation with live preview.
+
+---
+
+## ⚡ 功能
+
+### Architecture
 
 ```
 User Prompt → Validation → Skill Detection → Code Generation → Sanitization → Live Preview
 ```
 
-## How It Works
+### How It Works
 
-### 1. Validation
+#### 1. Validation
 
 Before expensive model calls, a lightweight classifier determines if the prompt describes valid motion graphics content.
 
@@ -27,7 +49,7 @@ Before expensive model calls, a lightweight classifier determines if the prompt 
 
 **Rejected**: questions, conversational requests, non-visual tasks
 
-### 2. Skill Detection
+#### 2. Skill Detection
 
 The system analyzes the prompt to identify which **skills** are relevant. Skills are modular knowledge units that provide domain-specific guidance to the code generation model.
 
@@ -38,7 +60,7 @@ There are two types of skills:
 
 This approach keeps the base prompt lightweight while dynamically injecting only the relevant expertise for each request.
 
-### 3. Code Generation
+#### 3. Code Generation
 
 Uses a one-shot prompt with the base Remotion knowledge plus any detected skills. The generated code follows these principles:
 
@@ -47,15 +69,19 @@ Uses a one-shot prompt with the base Remotion knowledge plus any detected skills
 - **Crossfade patterns** - Smooth state transitions without layout jumps
 - **Spring physics** - Natural, organic motion using Remotion's spring() function
 
-### 4. Sanitization & Compilation
+#### 4. Sanitization & Compilation
 
 The response is cleaned (removing markdown wrappers and trailing commentary), then compiled in-browser using Babel. The compiled component renders directly in the Remotion Preview with all necessary APIs injected.
 
-## Skills System
+---
+
+## 📊 指标
+
+### Skills System
 
 Skills enable contextual expertise without bloating every prompt. Located in `src/skills/`:
 
-### Guidance Skills
+#### Guidance Skills
 
 | Skill              | Purpose                                                                                 |
 | ------------------ | --------------------------------------------------------------------------------------- |
@@ -68,11 +94,15 @@ Skills enable contextual expertise without bloating every prompt. Located in `sr
 | **social-media**   | Platform-specific formats - aspect ratios, safe zones                                   |
 | **3d**             | Three.js integration - 3D scenes, camera setup                                          |
 
-### Example Skills (Code Snippets)
+#### Example Skills (Code Snippets)
 
 Example skills provide complete working references (histogram, chat messages, typewriter effects, etc.) that demonstrate these patterns in action. We think of them like implementation archetypes that can be used and adjusted for the user prompt.
 
-## Usage Tips
+---
+
+## 🏛️ 设计
+
+### Usage Tips
 
 **Prompting best practices:**
 
@@ -95,7 +125,21 @@ Example skills provide complete working references (histogram, chat messages, ty
 - Logo animations and brand intros
 - Abstract motion graphics
 
-## Commands
+---
+
+## 📁 目录
+
+「待补充」
+
+---
+
+## 🔗 资源
+
+「待补充」
+
+---
+
+## 🚀 快速开始
 
 **Install Dependencies**
 
@@ -120,6 +164,14 @@ npx remotion render
 ```console
 npx remotion upgrade
 ```
+
+---
+
+## ⚙️ 技术栈
+
+「待补充」
+
+---
 
 ## Docs
 

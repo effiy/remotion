@@ -1,3 +1,15 @@
+---
+title: "Remotion Electron Template"
+tags: [remotion, template, electron, desktop, vite, tailwindcss]
+category: template
+created: "2026-10-20"
+updated: "2026-10-20"
+source: external
+type: index
+status: stable
+lifecycle: active
+---
+
 # Remotion + Electron
 
 <p align="center">
@@ -13,7 +25,54 @@ This template uses Electron Forge, Vite, TypeScript, and Tailwind CSS to launch 
 
 The Electron window UI lives in `src/App.tsx` and is styled with Tailwind in `src/index.css`.
 
-## Commands
+---
+
+## 💡 概述
+
+This template uses Electron Forge, Vite, TypeScript, and Tailwind CSS to launch a minimal Electron app that renders a Remotion composition from the Electron main process. The Electron window UI lives in `src/App.tsx` and is styled with Tailwind in `src/index.css`.
+
+---
+
+## ⚡ 功能
+
+- Render Remotion compositions from an Electron main process
+- Electron Forge + Vite + TypeScript + Tailwind CSS toolchain
+- UI for title input and export with progress tracking on the app icon
+- Cancelable in-progress renders from the UI
+- Prebuilt Remotion bundle during packaging for instant renders
+- Remotion Studio access via separate command
+- Automated integration test mode via `--integration-render-test` flag
+
+---
+
+## 📊 指标
+
+「待补充」
+
+---
+
+## 🏛️ 设计
+
+「待补充」
+
+---
+
+## 📁 目录
+
+「待补充」
+
+---
+
+## 🔗 资源
+
+- [Remotion Electron Integration](https://www.remotion.dev/docs/electron)
+- [Discord Server](https://discord.gg/6VzzNDwUwV)
+- [Issue Tracker](https://github.com/remotion-dev/remotion/issues/new)
+- [License](https://github.com/remotion-dev/remotion/blob/main/LICENSE.md)
+
+---
+
+## 🚀 快速开始
 
 **Install Dependencies**
 
@@ -59,18 +118,13 @@ The packaged binary also accepts `--integration-render-test <absolute-output-pat
 npx remotion upgrade
 ```
 
-## Docs
+---
 
-Get started with Remotion by reading the [Electron integration page](https://www.remotion.dev/docs/electron).
+## ⚙️ 技术栈
 
-## Help
-
-We provide help on our [Discord server](https://discord.gg/6VzzNDwUwV).
-
-## Issues
-
-Found an issue with Remotion? [File an issue here](https://github.com/remotion-dev/remotion/issues/new).
-
-## License
-
-Note that for some entities a company license is needed. [Read the terms here](https://github.com/remotion-dev/remotion/blob/main/LICENSE.md).
+- Remotion
+- Electron (via Electron Forge)
+- Vite
+- TypeScript
+- Tailwind CSS
+- React

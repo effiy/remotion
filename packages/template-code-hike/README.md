@@ -1,3 +1,15 @@
+---
+title: "Remotion Code Hike Template"
+tags: [remotion, template, code-hike, code-animation]
+category: template
+created: "2026-10-20"
+updated: "2026-10-20"
+source: external
+type: index
+status: stable
+lifecycle: active
+---
+
 # Remotion video
 
 <p align="center">
@@ -11,7 +23,15 @@
 
 Welcome to your Remotion project!
 
-## Commands
+---
+
+## 💡 概述
+
+Welcome to your Remotion project! This template integrates Code Hike for animating code snippets in your videos.
+
+---
+
+## 🚀 快速开始
 
 **Install Dependencies**
 
@@ -27,7 +47,7 @@ npm run dev
 
 **Change code snippets**
 
-The snippets are located in the `public` folder.  
+The snippets are located in the `public` folder.
 Change the code or create new files in there.
 
 **Render video**
@@ -42,22 +62,12 @@ npx remotion render
 npx remotion upgrade
 ```
 
-## More examples
+---
 
-Visit the [Code Hike examples](https://github.com/code-hike/examples/tree/main/with-remotion) for more variants of code animations.
+## 🔗 资源
 
-## Docs
-
-Get started with Remotion by reading the [fundamentals page](https://www.remotion.dev/docs/the-fundamentals).
-
-## Help
-
-We provide help on our [Discord server](https://discord.gg/6VzzNDwUwV).
-
-## Issues
-
-Found an issue with Remotion? [File an issue here](https://github.com/remotion-dev/remotion/issues/new).
-
-## License
-
-Note that for some entities a company license is needed. [Read the terms here](https://github.com/remotion-dev/remotion/blob/main/LICENSE.md).
+- [Code Hike examples](https://github.com/code-hike/examples/tree/main/with-remotion)
+- [Remotion Fundamentals](https://www.remotion.dev/docs/the-fundamentals)
+- [Discord Server](https://discord.gg/6VzzNDwUwV)
+- [Issue Tracker](https://github.com/remotion-dev/remotion/issues/new)
+- [License](https://github.com/remotion-dev/remotion/blob/main/LICENSE.md)
